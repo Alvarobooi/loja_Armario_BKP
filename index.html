@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armário Masculino | Sportswear Premium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="Imagens/ArmarioMasc.jpeg" alt="Armário Masculino">
+    </div>
+    <nav>
+    <ul>
+        <li><a href="index.html">Início</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Times</a>
+            <div class="dropdown-content">
+                <a href="times.html#adulto">Adulto</a>
+                <a href="times.html#infantil">Infantil</a>
+            </div>
+        </li>
+        <li><a href="times_ex.html">Times Exclusivas</a></li>
+        <li><a href="premium.html">Premium</a></li>
+        <li><a href="index.html#categoria-suporte">Suporte</a></li>
+    </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="hero-shop">
+        <h1>ESTILO MASCULINO ELEVADO AO ESSENCIAL</h1>
+        <p>Sofisticação, Qualidade e Conforto</p>
+    <!-- SEÇÃO 1: ESPORTIVO (O JOGADOR) -->
+    <section class="home-section">
+        <div class="home-content">
+            <div class="home-image-jog left">
+                <img src="Imagens/Jogador.png" alt="Jogador em movimento">
+            </div>
+            <div class="home-text right">
+                <h2>Performance em Movimento</h2>
+                <p>Nossas peças esportivas são projetadas para quem busca o máximo desempenho sem abrir mão do estilo. Tecnologia dry-fit e corte ergonômico.</p>
+                <a href="times.html" class="btn-home">Ver Linha Esportiva</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: TIMES EXCLUSIVOS (O TORCEDOR) - Lado Invertido -->
+    <section class="home-section alt-bg">
+        <div class="home-content reverse"> 
+    <div class="home-image">
+        <img src="Imagens/exclusive.png" alt="Torcedor">
+    </div>
+    <div class="home-text">
+        <h2>PAIXÃO E EXCLUSIVIDADE</h2>
+        <p>Sinta a vibração da arquibancada...</p>
+        <a href="times_ex.html" class="btn-home">Explorar Times</a>
+    </div>
+</div>
+    </section>
+
+    <!-- SEÇÃO 3: PREMIUM (ESTILO) -->
+    <section class="home-section">
+        <div class="home-content">
+            <div class="home-image left">
+                <img src="Imagens/chique.png" alt="Modelo Linha Premium">
+            </div>
+            <div class="home-text right">
+                <h2>Linha Premium</h2>
+                <p>O essencial elevado ao máximo. Tecidos nobres e caimento perfeito para ocasiões que exigem presença e sofisticação.</p>
+                <a href="premium.html" class="btn-home">Conhecer Premium</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+    <div class="suporte-container" id="categoria-suporte">
+        <h2>Informações de Suporte</h2>
+        <p>
+            <a href="https://wa.me/5561999539889" target="_blank" style="color: var(--dourado); text-decoration: none; font-weight: bold;">
+                Chamar no WhatsApp
+            </a><br>
+            <strong>Endereço:</strong> Rua 15 Formosinha, nº 159<br>
+            Bairro: Parque Lagoa | Formosa-GO | Cep 73813220
+        </p>
+    </div>
+    </footer>
+
+</main>
+
+<!-- O SCRIPT DE VARIÁVEL FICA AQUI -->
+<script>
+    function mostrarCategoria(idCategoria) {
+    // Só executa a lógica de esconder/mostrar se a tela for de celular
+    if (window.innerWidth <= 768) {
+        const categorias = document.querySelectorAll('.categoria-conteudo');
+        categorias.forEach(cat => {
+            cat.style.display = 'none';
+        });
+
+        const alvo = document.getElementById('categoria-' + idCategoria);
+        if (alvo) {
+            alvo.style.display = 'block';
+            window.scrollTo(0, 0); // Volta pro topo ao clicar
+            }
+        }
+    }
+    // 1. Coloque seu número aqui (apenas números, com DDD)
+    const numeroWhatsApp = "5561999539889"; 
+
+    // 2. A mágica acontece aqui
+    const botoes = document.querySelectorAll('.btn-whats');
+    
+    botoes.forEach(botao => {
+        const nomeProduto = botao.getAttribute('data-item');
+        const mensagem = encodeURIComponent(`Olá! Tenho interesse no item: ${nomeProduto}. Poderia me passar mais informações?`);
+        botao.href = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+    });
+</script>
+
+</body>
+</html>
