@@ -1,0 +1,243 @@
+/* No PC (Telas grandes), as seções sempre aparecem */
+@media (min-width: 769px) {
+    .categoria-conteudo {
+        display: block !important; /* Força exibir tudo no PC */
+    }
+    nav {
+        display: block; /* Ou como seu menu já estiver */
+    }
+}
+
+/* No CELULAR (Telas pequenas), vira o sistema de abas */
+@media (max-width: 768px) {
+    .categoria-conteudo {
+        display: none; /* Esconde tudo por padrão no celular */
+    }
+    
+    /* Mostra a primeira por padrão ao abrir no celular, se quiser */
+    #categoria-times {
+        display: block; 
+    }
+}
+
+:root {
+    --preto: #0b0b0b;
+    --dourado: #c5a059; /* Tom aproximado do seu logo */
+    --cinza-escuro: #1a1a1a;
+    --branco: #ffffff;
+}
+
+body {
+    background-color: var(--preto);
+    color: var(--branco);
+}
+
+header {
+    padding: 1px 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.95); 
+    backdrop-filter: blur(1px);
+}
+
+.logo img {
+    max-width: 190px; 
+    
+    height: auto; 
+    
+    padding: 1px 0; 
+    
+    image-rendering: -webkit-optimize-contrast;
+    /*filter: drop-shadow(0 0 5px rgba(197, 160, 89, 0.3));*/
+}
+
+
+nav ul {
+    display: flex;
+    gap: 30px; 
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px; 
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--dourado);
+}
+
+.hero-shop {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('sua-foto-fundo.jpg');
+    background-size: cover;
+    padding: 100px 5%;
+    text-align: center;
+    border-bottom: 2px solid var(--dourado);
+}
+
+/* Container que segura os cards */
+.grid-produtos {
+    display: grid;
+    /* Aqui diz: crie colunas que se ajustam sozinhas com no mínimo 250px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    padding: 40px 5%;
+}
+
+/* Ajuste na imagem para ela não explodir */
+.card-loja img {
+    width: 100%;
+    height: 400px; /* Altura fixa para manter o padrão */
+    object-fit: cover; /* Faz a arte se ajustar sem esticar */
+    border-bottom: 1px solid #333;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 50px;
+    color: var(--dourado);
+}
+
+p {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 20px;
+     color: #fff;
+}
+
+/* Deixar o texto e preço com respiro */
+.info {
+    padding: 20px;
+    text-align: center;
+}
+
+.info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.info span {
+    color: var(--dourado);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+.card-loja:hover {
+    transform: scale(1.03); /* Dá um leve zoom no card */
+    box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2); /* Cria uma sombra dourada suave */
+    transition: all 0.3s ease;
+}
+
+.btn-comprar {
+    display: block;
+    background: transparent;
+    color: var(--dourado);
+    border: 1px solid var(--dourado);
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.btn-comprar:hover {
+    background: var(--dourado);
+    color: var(--preto);
+}
+
+.btn-home {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    border: 1px solid var(--dourado);
+    color: var(--dourado);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.btn-home:hover {
+    background: var(--dourado);
+    color: black;
+}
+
+html {
+    scroll-behavior: smooth; /* Deixa a descida suave, não um pulo seco */
+    scroll-padding-top: 250px; /* Ajuste esse valor de acordo com o tamanho do seu Header */
+}
+
+.suporte-container { /* Use o nome exato da classe do HTML */
+    border-bottom: 2px solid var(--dourado);
+    background-color: #111111; /* Adicione uma cor de fundo (ex: cinza escuro) */
+    /* Ou se quiser uma imagem: background-image: url('sua-foto.jpg'); */
+    background-size: cover;
+    background-position: center;
+    padding: 30px 5%; /* Diminuí um pouco o padding para não ficar gigante no celular */
+    text-align: center;
+    color: white; /* Garante que o texto fique legível sobre o fundo escuro */
+}
+
+.suporte-container p {
+    line-height: 1.6; /* Dá um espaço legal entre as linhas do endereço */
+    margin-top: 20px;
+}
+
+/* Container que segura a foto e o texto */
+.home-content {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center;
+    gap: 50px; /* Espaço entre a foto e o texto */
+    padding: 60px 10px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o bloco na tela */
+}
+
+/* Inverte a ordem na segunda seção (Torcedor) */
+.home-content.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Ajuste das imagens para não ficarem gigantes */
+.home-image img {
+    max-width: 400px; 
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.2)); /* Sombra dourada leve */
+}
+.home-image-jog img {
+    max-width: 600px; 
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.2)); /* Sombra dourada leve */
+}
+
+/* Ajuste do texto */
+.home-text {
+    max-width: 500px;
+    text-align: left;
+}
+
+/* No CELULAR, volta a ficar um embaixo do outro */
+@media (max-width: 768px) {
+    .home-content, .home-content.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+    .home-text {
+        text-align: center;
+    }
+}
